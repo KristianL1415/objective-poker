@@ -15,4 +15,7 @@ NSString *const kDiamondSuit = @"Diamond";
 NSString *const kSpadeSuit = @"Spade";
 NSString *const kClubSuit = @"Club";
 
+NSString *const kNumberOfPlayersPrompt = @"How many players will be in this game?";
+NSString *const kWelcomePrompt = @"Welcome to the Poker Room!";
+
 @end

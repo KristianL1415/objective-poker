@@ -15,4 +15,7 @@ extern NSString *const kDiamondSuit;
 extern NSString *const kSpadeSuit;
 extern NSString *const kClubSuit;
 
+extern NSString *const kNumberOfPlayersPrompt;
+extern NSString *const kWelcomePrompt;
+
 @end
