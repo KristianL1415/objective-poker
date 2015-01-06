@@ -10,4 +10,30 @@
 
 @implementation Card
 
+- (instancetype) init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.suit = @"Joker";
+        self.value = @"Joker";
+    }
+    
+    return self;
+}
+
+- (instancetype) initWithSuit:(NSString *)suit value:(NSString *)value
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.suit = suit;
+        self.value = value;
+    }
+    
+    return self;
+}
+
 @end

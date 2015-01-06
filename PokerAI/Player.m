@@ -10,4 +10,33 @@
 
 @implementation Player
 
+- (instancetype) initWithChipCount:(int)startingChipCount
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.chipCount = startingChipCount;
+        self.firstCard = [[Card alloc] init];
+        self.secondCard = [[Card alloc] init];
+    }
+    
+    return self;
+}
+
+- (void)check
+{
+    
+}
+
+- (void)bet:(int)amount
+{
+    
+}
+
+- (void)fold
+{
+    
+}
+
 @end

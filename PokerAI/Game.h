@@ -10,4 +10,10 @@
 
 @interface Game : NSObject
 
+@property (nonatomic, assign) int initialPlayerCount;
+@property (nonatomic, assign) int playersRemaining;
+@property (nonatomic, strong) NSMutableArray *players;
+
+- (instancetype) initWithNumberOfPlayers:(int)playerCount;
+
 @end

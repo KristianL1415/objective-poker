@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Card.h"
 
 @interface Player : NSObject
+
+@property (nonatomic, assign) int chipCount;
+@property (nonatomic, strong) Card *firstCard;
+@property (nonatomic, strong) Card *secondCard;
+
+- (instancetype) initWithChipCount:(int)startingChipCount;
+
+- (void)check;
+- (void)bet:(int)amount;
+- (void)fold;
 
 @end

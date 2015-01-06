@@ -10,4 +10,8 @@
 
 @interface CardDeck : NSObject
 
+@property (nonatomic, strong) NSMutableArray *cards;
+
+- (void)shuffle;
+
 @end

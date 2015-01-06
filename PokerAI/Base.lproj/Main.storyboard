@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -189,7 +189,7 @@
                                     <constraint firstAttribute="height" constant="30" id="ef2-4e-j6Z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b04-ya-eoA">
                                 <rect key="frame" x="40" y="396" width="75" height="45"/>
@@ -329,8 +329,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="betAmount" destination="5ja-CB-4yu" id="zWa-3c-TTE"/>
                         <outlet property="betButton" destination="nk3-gI-kfm" id="UXv-aN-6dy"/>
                         <outlet property="checkButton" destination="6z9-aj-EXL" id="Qqs-PU-Tha"/>
+                        <outlet property="dealerActions" destination="zJ4-rB-io8" id="1jc-th-aFp"/>
                         <outlet property="firstCardSuit" destination="dht-PD-A20" id="FKw-YI-vab"/>
                         <outlet property="firstCardValue" destination="eLM-2N-JIV" id="d7Z-9c-mi8"/>
                         <outlet property="foldButton" destination="b04-ya-eoA" id="bAR-We-w78"/>
@@ -339,12 +341,14 @@
                         <outlet property="playerInput" destination="2zt-IY-DfE" id="6NB-jL-Bf7"/>
                         <outlet property="playerSecondCardSuit" destination="2eL-Jo-7Gd" id="NGh-Yf-nsj"/>
                         <outlet property="playerSecondCardValue" destination="3bT-Ja-FC3" id="SP5-P5-Ja4"/>
+                        <outlet property="potAmount" destination="AYf-Z8-Pqh" id="V2v-jg-8vt"/>
                         <outlet property="riverCardSuit" destination="teA-ht-UJ7" id="ibi-6t-l34"/>
                         <outlet property="riverCardValue" destination="DzI-OR-nm4" id="8gh-FZ-XZT"/>
                         <outlet property="secondCardSuit" destination="nHW-pg-UUn" id="0Zn-Ac-p7P"/>
                         <outlet property="secondCardValue" destination="bpy-w2-0JQ" id="rBh-38-7XV"/>
                         <outlet property="thirdCardSuit" destination="b3J-aD-b6J" id="ETt-cv-TNZ"/>
                         <outlet property="thirdCardValue" destination="JSi-G9-LTc" id="vGu-lg-pC1"/>
+                        <outlet property="toCallAmount" destination="isr-ZD-bem" id="aoh-b0-rSa"/>
                         <outlet property="turnCardSuit" destination="Kx4-KO-pku" id="sTW-uP-eY4"/>
                         <outlet property="turnCardValue" destination="rU3-sC-qTk" id="gBD-v5-2ms"/>
                     </connections>

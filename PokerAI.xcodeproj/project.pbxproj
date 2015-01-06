@@ -19,6 +19,9 @@
 		996ACA011A5B3D29003CC906 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA001A5B3D29003CC906 /* Player.m */; };
 		996ACA051A5B3D50003CC906 /* CardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA041A5B3D50003CC906 /* CardDeck.m */; };
 		996ACA081A5B3D5B003CC906 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA071A5B3D5B003CC906 /* Card.m */; };
+		99DCF0851A5C7D1800B76695 /* HumanPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0841A5C7D1800B76695 /* HumanPlayer.m */; };
+		99DCF0881A5C7D2E00B76695 /* ComputerPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0871A5C7D2E00B76695 /* ComputerPlayer.m */; };
+		99DCF08C1A5C87D900B76695 /* StringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF08B1A5C87D900B76695 /* StringConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,12 @@
 		996ACA041A5B3D50003CC906 /* CardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDeck.m; sourceTree = "<group>"; };
 		996ACA061A5B3D5B003CC906 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		996ACA071A5B3D5B003CC906 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		99DCF0831A5C7D1800B76695 /* HumanPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanPlayer.h; sourceTree = "<group>"; };
+		99DCF0841A5C7D1800B76695 /* HumanPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanPlayer.m; sourceTree = "<group>"; };
+		99DCF0861A5C7D2E00B76695 /* ComputerPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComputerPlayer.h; sourceTree = "<group>"; };
+		99DCF0871A5C7D2E00B76695 /* ComputerPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComputerPlayer.m; sourceTree = "<group>"; };
+		99DCF08A1A5C87D900B76695 /* StringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringConstants.h; sourceTree = "<group>"; };
+		99DCF08B1A5C87D900B76695 /* StringConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +108,7 @@
 				996AC9F71A5B3CC5003CC906 /* App */,
 				996AC9F51A5B3CA3003CC906 /* Models */,
 				996AC9F61A5B3CAC003CC906 /* Controllers */,
+				99DCF0891A5C87B500B76695 /* Helpers */,
 				996AC9DC1A5B3C92003CC906 /* Images.xcassets */,
 				996AC9DE1A5B3C92003CC906 /* LaunchScreen.xib */,
 				996AC9CF1A5B3C92003CC906 /* Supporting Files */,
@@ -169,6 +179,10 @@
 			children = (
 				996AC9FF1A5B3D29003CC906 /* Player.h */,
 				996ACA001A5B3D29003CC906 /* Player.m */,
+				99DCF0831A5C7D1800B76695 /* HumanPlayer.h */,
+				99DCF0841A5C7D1800B76695 /* HumanPlayer.m */,
+				99DCF0861A5C7D2E00B76695 /* ComputerPlayer.h */,
+				99DCF0871A5C7D2E00B76695 /* ComputerPlayer.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -182,6 +196,15 @@
 				996ACA071A5B3D5B003CC906 /* Card.m */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		99DCF0891A5C87B500B76695 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				99DCF08A1A5C87D900B76695 /* StringConstants.h */,
+				99DCF08B1A5C87D900B76695 /* StringConstants.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +311,13 @@
 				996AC9FA1A5B3CFF003CC906 /* Dealer.m in Sources */,
 				996AC9D81A5B3C92003CC906 /* ViewController.m in Sources */,
 				996ACA081A5B3D5B003CC906 /* Card.m in Sources */,
+				99DCF0851A5C7D1800B76695 /* HumanPlayer.m in Sources */,
 				996AC9D51A5B3C92003CC906 /* AppDelegate.m in Sources */,
+				99DCF08C1A5C87D900B76695 /* StringConstants.m in Sources */,
 				996ACA051A5B3D50003CC906 /* CardDeck.m in Sources */,
 				996ACA011A5B3D29003CC906 /* Player.m in Sources */,
 				996AC9D21A5B3C92003CC906 /* main.m in Sources */,
+				99DCF0881A5C7D2E00B76695 /* ComputerPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +508,7 @@
 				996AC9F11A5B3C92003CC906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		996AC9F21A5B3C92003CC906 /* Build configuration list for PBXNativeTarget "PokerAITests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +517,7 @@
 				996AC9F41A5B3C92003CC906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

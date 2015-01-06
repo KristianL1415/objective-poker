@@ -7,13 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Game.h"
-#import "CardDeck.h"
 
 @interface Dealer : NSObject
-
-@property(nonatomic, strong) Game *game;
-@property(nonatomic, strong) CardDeck *deck;
-@property(nonatomic, assign) int button;
 
 @end

@@ -10,4 +10,9 @@
 
 @interface Card : NSObject
 
+@property (nonatomic, strong) NSString *suit;
+@property (nonatomic, strong) NSString *value;
+
+- (instancetype) initWithSuit:(NSString *)suit value:(NSString *)value;
+
 @end
