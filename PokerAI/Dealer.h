@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ViewController.h"
+#import "Game.h"
 
 @interface Dealer : NSObject
+
+@property (nonatomic, strong) Game *game;
+
+- (instancetype) initWithPlayerCount:(int)playerCount controller:(ViewController *)controller;
+- (void)dealHand;
 
 @end

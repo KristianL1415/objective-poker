@@ -8,27 +8,27 @@
 
 #import "Dealer.h"
 
-#import "Game.h"
 #import "CardDeck.h"
 #import "Player.h"
 
 @interface Dealer ()
 
-@property(nonatomic, strong) Game *game;
-@property(nonatomic, strong) CardDeck *deck;
-@property(nonatomic, assign) int button;
+@property (nonatomic, strong) ViewController *uiController;
+@property (nonatomic, strong) CardDeck *deck;
+@property (nonatomic, assign) int button;
 
 @end
 
 @implementation Dealer
 
-- (instancetype) init
+- (instancetype) initWithPlayerCount:(int)playerCount controller:(ViewController *)controller
 {
     self = [super init];
     
     if (self)
     {
-        self.game = [self setupNewGame];
+        self.uiController = controller;
+        self.game = [self setupNewGame:playerCount];
         self.deck = [[CardDeck alloc] init];
         self.button = 0; // TODO: Once card flip is implemented, change this to be dynamic
     }
@@ -36,11 +36,9 @@
     return self;
 }
 
-- (Game *)setupNewGame
+- (Game *)setupNewGame:(int)playerCount
 {
-    Game *newGame = [[Game alloc] init];
-    
-    
+    Game *newGame = [[Game alloc] initWithNumberOfPlayers:playerCount];
     
     return newGame;
 }
@@ -58,19 +56,24 @@
     
     for (int i = 0; i < [self.game.players count] * 2; i++)
     {
+        Player *currentPlayer = [self.game.players objectAtIndex:playerIndex];
+        Card *currentCard = [self.deck.cards objectAtIndex:i];
+        
         // deal first card
-        if ( i < [self.game.players count] - 1)
+        if (i < [self.game.players count])
         {
-            [[self.game.players objectAtIndex:playerIndex] setFirstCard:[self.deck.cards objectAtIndex:i]];
+            [currentPlayer setFirstCard:currentCard];
+            [self.uiController displayCard:currentCard forPlayer:currentPlayer atPosition:0];
         }
         // deal second card
         else
         {
-            [[self.game.players objectAtIndex:playerIndex] setSecondCard:[self.deck.cards objectAtIndex:i]];
+            [currentPlayer setSecondCard:currentCard];
+            [self.uiController displayCard:currentCard forPlayer:currentPlayer atPosition:1];
         }
         
         playerIndex = [self getNextPlayerIndex:playerIndex];
-        // TODO: Update interface
+        // TODO: Pass index of next card to be dealt for the board
     }
 }
 

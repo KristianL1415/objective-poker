@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Card.h"
+#import "Player.h"
+
 @interface ViewController : UIViewController
+
+- (void)displayCard:(Card *)card forPlayer:(Player *)player atPosition:(int)cardIndex;
+- (void)displayBoardCard:(Card *)card atPosition:(int)cardIndex;
 
 @end
 

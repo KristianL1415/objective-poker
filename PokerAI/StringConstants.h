@@ -17,5 +17,8 @@ extern NSString *const kClubSuit;
 
 extern NSString *const kNumberOfPlayersPrompt;
 extern NSString *const kWelcomePrompt;
+extern NSString *const kInvalidInput;
+extern NSString *const kTooManyPlayers;
+extern NSString *const kNotEnoughPlayers;
 
 @end

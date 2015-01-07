@@ -14,8 +14,9 @@
 @property (nonatomic, assign) int chipCount;
 @property (nonatomic, strong) Card *firstCard;
 @property (nonatomic, strong) Card *secondCard;
+@property (nonatomic, assign) int seatIndex;
 
-- (instancetype) initWithChipCount:(int)startingChipCount;
+- (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat;
 
 - (void)check;
 - (void)bet:(int)amount;

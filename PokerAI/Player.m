@@ -10,7 +10,7 @@
 
 @implementation Player
 
-- (instancetype) initWithChipCount:(int)startingChipCount
+- (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat
 {
     self = [super init];
     
@@ -19,6 +19,7 @@
         self.chipCount = startingChipCount;
         self.firstCard = [[Card alloc] init];
         self.secondCard = [[Card alloc] init];
+        self.seatIndex = seat;
     }
     
     return self;

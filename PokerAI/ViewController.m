@@ -10,11 +10,32 @@
 
 #import "Game.h"
 #import "Dealer.h"
+#import "HumanPlayer.h"
+#import "ComputerPlayer.h"
 #import "StringConstants.h"
+
+typedef NS_ENUM(NSInteger, PlayerState)
+{
+    getPlayerCount,
+    onPlayer,
+    onOpponent
+};
 
 @interface ViewController ()
 
 @property (nonatomic, strong) Dealer *dealer;
+@property (nonatomic, assign) PlayerState state;
+
+@property (nonatomic, strong) IBOutlet UILabel *computer1ChipCount;
+@property (nonatomic, strong) IBOutlet UILabel *computer2ChipCount;
+@property (nonatomic, strong) IBOutlet UILabel *computer3ChipCount;
+@property (nonatomic, strong) IBOutlet UILabel *computer4ChipCount;
+@property (nonatomic, strong) IBOutlet UILabel *computer5ChipCount;
+@property (nonatomic, strong) IBOutlet UILabel *computer1Action;
+@property (nonatomic, strong) IBOutlet UILabel *computer2Action;
+@property (nonatomic, strong) IBOutlet UILabel *computer3Action;
+@property (nonatomic, strong) IBOutlet UILabel *computer4Action;
+@property (nonatomic, strong) IBOutlet UILabel *computer5Action;
 
 @property (nonatomic, strong) IBOutlet UILabel *dealerActions;
 @property (nonatomic, strong) IBOutlet UILabel *potAmount;
@@ -33,6 +54,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *riverCardValue;
 
 @property (nonatomic, strong) IBOutlet UITextField *playerInput;
+@property (nonatomic, strong) IBOutlet UIView *playerFirstCard;
+@property (nonatomic, strong) IBOutlet UIView *playerSecondCard;
 @property (nonatomic, strong) IBOutlet UILabel *playerFirstCardSuit;
 @property (nonatomic, strong) IBOutlet UILabel *playerFirstCardValue;
 @property (nonatomic, strong) IBOutlet UILabel *playerSecondCardSuit;
@@ -64,7 +87,6 @@
 
 - (void)startNewGame
 {
-    self.dealer = [[Dealer alloc] init];
     [self.dealerActions setText:kWelcomePrompt];
     
     [self performSelector:@selector(numberOfPlayersPrompt) withObject:nil afterDelay:3.0];
@@ -73,6 +95,106 @@
 - (void)numberOfPlayersPrompt
 {
     [self.dealerActions setText:kNumberOfPlayersPrompt];
+    [self.playerInput becomeFirstResponder];
+}
+
+- (void)processInput:(int)input
+{
+    switch (self.state)
+    {
+        case getPlayerCount:
+            if (input > 6)
+            {
+                [self.dealerActions setText:kTooManyPlayers];
+            }
+            else if (input < 2)
+            {
+                [self.dealerActions setText:kNotEnoughPlayers];
+            }
+            else
+            {
+                self.dealer = [[Dealer alloc] initWithPlayerCount:input controller:self];
+                [self beginGame];
+            }
+            break;
+            
+        case onPlayer:
+            // TODO: allow player to make an action
+            break;
+            
+        case onOpponent:
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)beginGame
+{
+//    while ([self.dealer.game playersRemaining] > 1)
+//    {
+        [self.dealer dealHand];
+//    }
+}
+
+- (void)displayCard:(Card *)card forPlayer:(Player *)player atPosition:(int)cardIndex
+{
+    if ([player isKindOfClass:[HumanPlayer class]])
+    {
+        // display card
+        if (cardIndex == 0)
+        {
+            [self.playerFirstCardSuit setText:card.suit];
+            [self.playerFirstCardValue setText:card.value];
+            [self.playerFirstCard setHidden:NO];
+        }
+        else if (cardIndex == 1)
+        {
+            [self.playerSecondCardSuit setText:card.suit];
+            [self.playerSecondCardValue setText:card.value];
+            [self.playerSecondCard setHidden:NO];
+        }
+    }
+}
+
+- (void)displayBoardCard:(Card *)card atPosition:(int)cardIndex
+{
+    
+}
+
+#pragma mark - Interface Methods
+
+- (IBAction)enterPressed:(id)sender
+{
+    if ([self.playerInput.text isEqualToString:@""])
+    {
+        [self.dealerActions setText:kInvalidInput];
+        return;
+    }
+    else
+    {
+        int userInput = [self.playerInput.text intValue];
+        [self processInput:userInput];
+        
+        [self.playerInput resignFirstResponder];
+    }
+}
+
+- (IBAction)foldPressed:(id)sender
+{
+    
+}
+
+- (IBAction)checkCallPressed:(id)sender
+{
+    
+}
+
+- (IBAction)betRaisePressed:(id)sender
+{
+    
 }
 
 @end

@@ -22,11 +22,11 @@
         self.initialPlayerCount = playerCount;
         self.playersRemaining = playerCount;
         self.players = [[NSMutableArray alloc] init];
-        [self.players addObject:[[HumanPlayer alloc] initWithChipCount:500]];
+        [self.players addObject:[[HumanPlayer alloc] initWithChipCount:500 seatIndex:0]];
         
-        for (int i = 0; i < self.initialPlayerCount - 1; i++)
+        for (int i = 1; i < self.initialPlayerCount; i++)
         {
-            [self.players addObject:[[ComputerPlayer alloc] initWithChipCount:500]];
+            [self.players addObject:[[ComputerPlayer alloc] initWithChipCount:500 seatIndex:i]];
         }
     }
     
