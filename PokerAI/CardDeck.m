@@ -11,6 +11,8 @@
 #import "Card.h"
 #import "StringConstants.h"
 
+#include <stdlib.h>
+
 @implementation CardDeck
 
 - (instancetype) init
@@ -40,6 +42,27 @@
     if ([self.cards count] == 52)
     {
         // TODO: implement a shuffling algorithm here
+        NSMutableArray *firstSplit = [[NSMutableArray alloc] init];
+        NSMutableArray *secondSplit = [[NSMutableArray alloc] init];
+        
+        NSIndexSet *firstSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 26)];
+        NSIndexSet *secondSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(26, 26)];
+        [firstSplit addObjectsFromArray:[self.cards objectsAtIndexes:firstSet]];
+        [secondSplit addObjectsFromArray:[self.cards objectsAtIndexes:secondSet]];
+        
+        NSMutableArray *tempDeck = [[NSMutableArray alloc] init];
+        int topDeck = arc4random_uniform(2);
+        
+        if (topDeck == 0)
+        {
+            // begin with first deck
+        }
+        else if (topDeck == 1)
+        {
+            // begin w/ second deck
+        }
+        
+        
     }
 }
 
