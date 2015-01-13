@@ -21,6 +21,9 @@
     {
         self.initialPlayerCount = playerCount;
         self.playersRemaining = playerCount;
+        // TODO: Eventually could remove hardcoding of blinds/starting chip amount
+        self.smallBlind = 25;
+        self.bigBlind = 50;
         self.players = [[NSMutableArray alloc] init];
         [self.players addObject:[[HumanPlayer alloc] initWithChipCount:500 seatIndex:0]];
         

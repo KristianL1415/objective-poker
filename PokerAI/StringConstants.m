@@ -21,5 +21,7 @@ NSString *const kInvalidInput = @"Please enter a number.";
 NSString *const kTooManyPlayers = @"Sorry, the maximum number of players is 6.";
 NSString *const kNotEnoughPlayers = @"Please enter a minimum of 2 players.";
 NSString *const kDealingHand = @"Dealing hand...";
+NSString *const kSmallBlind = @"Sm. blind";
+NSString *const kBigBlind = @"Big blind";
 
 @end

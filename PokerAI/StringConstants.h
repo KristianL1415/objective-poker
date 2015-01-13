@@ -21,5 +21,7 @@ extern NSString *const kInvalidInput;
 extern NSString *const kTooManyPlayers;
 extern NSString *const kNotEnoughPlayers;
 extern NSString *const kDealingHand;
+extern NSString *const kSmallBlind;
+extern NSString *const kBigBlind;
 
 @end

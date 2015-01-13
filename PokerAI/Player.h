@@ -12,6 +12,7 @@
 @interface Player : NSObject
 
 @property (nonatomic, assign) int chipCount;
+@property (nonatomic, assign) int betAmount;
 @property (nonatomic, strong) Card *firstCard;
 @property (nonatomic, strong) Card *secondCard;
 @property (nonatomic, assign) int seatIndex;
@@ -19,6 +20,7 @@
 - (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat;
 
 - (void)check;
+- (void)call;
 - (void)bet:(int)amount;
 - (void)fold;
 

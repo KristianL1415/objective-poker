@@ -13,6 +13,8 @@
 @property (nonatomic, assign) int initialPlayerCount;
 @property (nonatomic, assign) int playersRemaining;
 @property (nonatomic, strong) NSMutableArray *players;
+@property (nonatomic, assign) int smallBlind;
+@property (nonatomic, assign) int bigBlind;
 
 - (instancetype) initWithNumberOfPlayers:(int)playerCount;
 

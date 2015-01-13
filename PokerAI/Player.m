@@ -17,6 +17,7 @@
     if (self)
     {
         self.chipCount = startingChipCount;
+        self.betAmount = 0;
         self.firstCard = [[Card alloc] init];
         self.secondCard = [[Card alloc] init];
         self.seatIndex = seat;
@@ -30,9 +31,15 @@
     
 }
 
-- (void)bet:(int)amount
+- (void)call
 {
     
+}
+
+- (void)bet:(int)amount
+{
+    self.betAmount += amount;
+    self.chipCount -= amount;
 }
 
 - (void)fold

@@ -17,5 +17,6 @@
 - (instancetype) initWithPlayerCount:(int)playerCount controller:(ViewController *)controller;
 - (void)dealHand;
 - (void)setBlinds;
+- (void)beginAction;
 
 @end

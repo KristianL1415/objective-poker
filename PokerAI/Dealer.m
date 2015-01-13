@@ -21,6 +21,8 @@
 
 @implementation Dealer
 
+#pragma mark - Initialization
+
 - (instancetype) initWithPlayerCount:(int)playerCount controller:(ViewController *)controller
 {
     self = [super init];
@@ -42,6 +44,8 @@
     
     return newGame;
 }
+
+#pragma mark - Game Logic
 
 - (void)dealHand
 {
@@ -79,8 +83,29 @@
 
 - (void)setBlinds
 {
+    Player *smallBlind = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button]];
+    Player *bigBlind = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 1]];
+    
+    [smallBlind bet:[self.game smallBlind]];
+    [bigBlind bet:[self.game bigBlind]];
+    
+    [self.uiController updateChipCounts];
+}
+
+- (void)beginAction
+{
+    // Pre-flop action
+    //Player *firstActor = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 2]];
+    
+    // Flop
+    
+    // Turn
+    
+    // River
     
 }
+
+#pragma mark - Helpers
 
 - (int)getNextPlayerIndex:(int)currentPosition
 {
