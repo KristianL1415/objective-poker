@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, PlayerState)
 @property (nonatomic, strong) IBOutlet UILabel *riverCardValue;
 
 @property (nonatomic, strong) IBOutlet UITextField *playerInput;
+@property (nonatomic ,strong) IBOutlet UILabel *playerChipCount;
 @property (nonatomic, strong) IBOutlet UIView *playerFirstCard;
 @property (nonatomic, strong) IBOutlet UIView *playerSecondCard;
 @property (nonatomic, strong) IBOutlet UILabel *playerFirstCardSuit;
@@ -133,10 +134,41 @@ typedef NS_ENUM(NSInteger, PlayerState)
 
 - (void)beginGame
 {
-//    while ([self.dealer.game playersRemaining] > 1)
-//    {
+    [self setupInterfaceForGame:self.dealer.game];
+    [self beginGameLoop];
+}
+
+- (void)setupInterfaceForGame:(Game *)game
+{
+    HumanPlayer *human;
+    
+    if ([[game.players objectAtIndex:0] isKindOfClass:[HumanPlayer class]])
+    {
+        human = [game.players objectAtIndex:0];
+    }
+    
+    [self.playerChipCount setText:[NSString stringWithFormat:@"%d", human.chipCount]];
+    [self.playerChipCount setHidden:NO];
+    
+    NSArray *chipLabels = [[NSArray alloc] initWithObjects:self.computer1ChipCount, self.computer2ChipCount, self.computer3ChipCount, self.computer4ChipCount, self.computer5ChipCount, nil];
+    
+    for (int i = 1; i < [game.players count]; i++)
+    {
+        UILabel *chipLabel = [chipLabels objectAtIndex:i - 1];
+        [chipLabel setText:[NSString stringWithFormat:@"%d", [[game.players objectAtIndex:i] chipCount]]];
+        [chipLabel setHidden:NO];
+    }
+}
+
+- (void)beginGameLoop
+{
+    while ([self.dealer.game playersRemaining] > 1)
+    {
+        [self.dealerActions setText:kDealingHand];
         [self.dealer dealHand];
-//    }
+        
+        [self.dealer setBlinds];
+    }
 }
 
 - (void)displayCard:(Card *)card forPlayer:(Player *)player atPosition:(int)cardIndex

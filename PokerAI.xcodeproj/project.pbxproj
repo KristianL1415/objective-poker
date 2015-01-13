@@ -110,7 +110,6 @@
 				996AC9F61A5B3CAC003CC906 /* Controllers */,
 				99DCF0891A5C87B500B76695 /* Helpers */,
 				996AC9DC1A5B3C92003CC906 /* Images.xcassets */,
-				996AC9DE1A5B3C92003CC906 /* LaunchScreen.xib */,
 				996AC9CF1A5B3C92003CC906 /* Supporting Files */,
 			);
 			path = PokerAI;
@@ -170,6 +169,7 @@
 				996AC9D31A5B3C92003CC906 /* AppDelegate.h */,
 				996AC9D41A5B3C92003CC906 /* AppDelegate.m */,
 				996AC9D91A5B3C92003CC906 /* Main.storyboard */,
+				996AC9DE1A5B3C92003CC906 /* LaunchScreen.xib */,
 			);
 			name = App;
 			sourceTree = "<group>";

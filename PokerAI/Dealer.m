@@ -28,7 +28,7 @@
     if (self)
     {
         self.uiController = controller;
-        self.game = [self setupNewGame:playerCount];
+        self.game = [self createNewGame:playerCount];
         self.deck = [[CardDeck alloc] init];
         self.button = 0; // TODO: Once card flip is implemented, change this to be dynamic
     }
@@ -36,7 +36,7 @@
     return self;
 }
 
-- (Game *)setupNewGame:(int)playerCount
+- (Game *)createNewGame:(int)playerCount
 {
     Game *newGame = [[Game alloc] initWithNumberOfPlayers:playerCount];
     
@@ -75,6 +75,11 @@
         playerIndex = [self getNextPlayerIndex:playerIndex];
         // TODO: Pass index of next card to be dealt for the board
     }
+}
+
+- (void)setBlinds
+{
+    
 }
 
 - (int)getNextPlayerIndex:(int)currentPosition

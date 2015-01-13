@@ -20,5 +20,6 @@ extern NSString *const kWelcomePrompt;
 extern NSString *const kInvalidInput;
 extern NSString *const kTooManyPlayers;
 extern NSString *const kNotEnoughPlayers;
+extern NSString *const kDealingHand;
 
 @end
