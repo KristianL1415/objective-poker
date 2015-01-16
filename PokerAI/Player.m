@@ -8,6 +8,7 @@
 
 #import "Player.h"
 
+#import "HandStrengthCalculator.h"
 @implementation Player
 
 - (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat
@@ -33,7 +34,7 @@
  */
 - (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft
 {
-    
+    [HandStrengthCalculator getHandStrength:self.firstCard secondCard:self.secondCard];
 }
 
 - (void)check
