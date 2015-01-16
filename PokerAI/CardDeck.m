@@ -41,28 +41,10 @@
 {
     if ([self.cards count] == 52)
     {
-        // TODO: implement a shuffling algorithm here
-        NSMutableArray *firstSplit = [[NSMutableArray alloc] init];
-        NSMutableArray *secondSplit = [[NSMutableArray alloc] init];
-        
-        NSIndexSet *firstSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 26)];
-        NSIndexSet *secondSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(26, 26)];
-        [firstSplit addObjectsFromArray:[self.cards objectsAtIndexes:firstSet]];
-        [secondSplit addObjectsFromArray:[self.cards objectsAtIndexes:secondSet]];
-        
-        NSMutableArray *tempDeck = [[NSMutableArray alloc] init];
-        int topDeck = arc4random_uniform(2);
-        
-        if (topDeck == 0)
+        for (int i = (int)[self.cards count] - 1; i > 0; i--)
         {
-            // begin with first deck
+            [self.cards exchangeObjectAtIndex:(arc4random_uniform((int)[self.cards count] - 1)) withObjectAtIndex:i];
         }
-        else if (topDeck == 1)
-        {
-            // begin w/ second deck
-        }
-        
-        
     }
 }
 
