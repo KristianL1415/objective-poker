@@ -97,6 +97,9 @@
 - (void)beginAction
 {
     // Pre-flop action
+    Hand *newHand = [[Hand alloc] initWithNumberOfPlayers:self.game.playersRemaining];
+    [self.game setCurrentHand:newHand];
+    [self.game.currentHand setCurrentBet:self.game.bigBlind];
     Player *firstActor = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 2]];
     [self decideAction:firstActor forPhase:0];
     

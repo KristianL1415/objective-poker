@@ -21,7 +21,7 @@
 
 - (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft;
 - (void)check;
-- (void)call;
+- (void)call:(int)amount;
 - (void)bet:(int)amount;
 - (void)fold;
 

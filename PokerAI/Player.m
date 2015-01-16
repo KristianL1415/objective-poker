@@ -27,35 +27,30 @@
     return self;
 }
 
-/* 
- * Decision making algorithm for AI
- * Accounts for action of others and phase of the hand
- * Could also account for button position, playing style, etc.
- */
-- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft
-{
-    [HandStrengthCalculator getHandStrength:self.firstCard secondCard:self.secondCard];
-}
+- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft { }
 
 - (void)check
 {
-    
+    NSLog(@"Player checks.");
 }
 
-- (void)call
+- (void)call:(int)amount
 {
-    
+    NSLog(@"Player calls bet of %d chips", amount);
+    self.chipCount -= amount - self.betAmount;
+    self.betAmount = amount;
 }
 
 - (void)bet:(int)amount
 {
+    NSLog(@"Player bet %d chips", amount);
     self.betAmount += amount;
     self.chipCount -= amount;
 }
 
 - (void)fold
 {
-    
+    NSLog(@"Player folds.");
 }
 
 @end
