@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Hand.h"
+
 @interface Game : NSObject
 
 @property (nonatomic, assign) int initialPlayerCount;
 @property (nonatomic, assign) int playersRemaining;
 @property (nonatomic, strong) NSMutableArray *players;
+@property (nonatomic, strong) Hand *currentHand;
 @property (nonatomic, assign) int smallBlind;
 @property (nonatomic, assign) int bigBlind;
 

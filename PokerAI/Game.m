@@ -21,6 +21,7 @@
     {
         self.initialPlayerCount = playerCount;
         self.playersRemaining = playerCount;
+        self.currentHand = [[Hand alloc] initWithNumberOfPlayers:playerCount];
         // TODO: Eventually could remove hardcoding of blinds/starting chip amount
         self.smallBlind = 25;
         self.bigBlind = 50;

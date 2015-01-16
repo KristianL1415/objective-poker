@@ -10,6 +10,8 @@
 
 #import "CardDeck.h"
 #import "Player.h"
+#import "HumanPlayer.h"
+#import "ComputerPlayer.h"
 
 @interface Dealer ()
 
@@ -95,7 +97,8 @@
 - (void)beginAction
 {
     // Pre-flop action
-    //Player *firstActor = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 2]];
+    Player *firstActor = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 2]];
+    [self decideAction:firstActor forPhase:0];
     
     // Flop
     
@@ -106,6 +109,18 @@
 }
 
 #pragma mark - Helpers
+
+- (void)decideAction:(Player *)player forPhase:(int)handPhase
+{
+    if ([player isKindOfClass:[HumanPlayer class]])
+    {
+        // Wait for human input
+    }
+    else
+    {
+        [player decideAction:handPhase toCall:self.game.currentHand.currentBet withPlayersLeft:self.game.currentHand.playersInHand];
+    }
+}
 
 - (int)getNextPlayerIndex:(int)currentPosition
 {

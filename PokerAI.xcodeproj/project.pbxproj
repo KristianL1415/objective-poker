@@ -19,6 +19,8 @@
 		996ACA011A5B3D29003CC906 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA001A5B3D29003CC906 /* Player.m */; };
 		996ACA051A5B3D50003CC906 /* CardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA041A5B3D50003CC906 /* CardDeck.m */; };
 		996ACA081A5B3D5B003CC906 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 996ACA071A5B3D5B003CC906 /* Card.m */; };
+		99C6FBB81A6982EB006C7A7E /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C6FBB71A6982EB006C7A7E /* Hand.m */; };
+		99C6FBC01A698F72006C7A7E /* HandStrengthCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C6FBBF1A698F72006C7A7E /* HandStrengthCalculator.m */; };
 		99DCF0851A5C7D1800B76695 /* HumanPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0841A5C7D1800B76695 /* HumanPlayer.m */; };
 		99DCF0881A5C7D2E00B76695 /* ComputerPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0871A5C7D2E00B76695 /* ComputerPlayer.m */; };
 		99DCF08C1A5C87D900B76695 /* StringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF08B1A5C87D900B76695 /* StringConstants.m */; };
@@ -58,6 +60,10 @@
 		996ACA041A5B3D50003CC906 /* CardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDeck.m; sourceTree = "<group>"; };
 		996ACA061A5B3D5B003CC906 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		996ACA071A5B3D5B003CC906 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		99C6FBB61A6982EB006C7A7E /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
+		99C6FBB71A6982EB006C7A7E /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
+		99C6FBBE1A698F72006C7A7E /* HandStrengthCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandStrengthCalculator.h; sourceTree = "<group>"; };
+		99C6FBBF1A698F72006C7A7E /* HandStrengthCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandStrengthCalculator.m; sourceTree = "<group>"; };
 		99DCF0831A5C7D1800B76695 /* HumanPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanPlayer.h; sourceTree = "<group>"; };
 		99DCF0841A5C7D1800B76695 /* HumanPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanPlayer.m; sourceTree = "<group>"; };
 		99DCF0861A5C7D2E00B76695 /* ComputerPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComputerPlayer.h; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				996AC9F71A5B3CC5003CC906 /* App */,
+				99C6FBBA1A698F01006C7A7E /* AI Logic */,
 				996AC9F51A5B3CA3003CC906 /* Models */,
 				996AC9F61A5B3CAC003CC906 /* Controllers */,
 				99DCF0891A5C87B500B76695 /* Helpers */,
@@ -150,6 +157,8 @@
 				996AC9F91A5B3CFF003CC906 /* Dealer.m */,
 				996AC9FB1A5B3D0D003CC906 /* Game.h */,
 				996AC9FC1A5B3D0D003CC906 /* Game.m */,
+				99C6FBB61A6982EB006C7A7E /* Hand.h */,
+				99C6FBB71A6982EB006C7A7E /* Hand.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -196,6 +205,15 @@
 				996ACA071A5B3D5B003CC906 /* Card.m */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		99C6FBBA1A698F01006C7A7E /* AI Logic */ = {
+			isa = PBXGroup;
+			children = (
+				99C6FBBE1A698F72006C7A7E /* HandStrengthCalculator.h */,
+				99C6FBBF1A698F72006C7A7E /* HandStrengthCalculator.m */,
+			);
+			name = "AI Logic";
 			sourceTree = "<group>";
 		};
 		99DCF0891A5C87B500B76695 /* Helpers */ = {
@@ -307,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C6FBB81A6982EB006C7A7E /* Hand.m in Sources */,
 				996AC9FD1A5B3D0D003CC906 /* Game.m in Sources */,
 				996AC9FA1A5B3CFF003CC906 /* Dealer.m in Sources */,
 				996AC9D81A5B3C92003CC906 /* ViewController.m in Sources */,
@@ -318,6 +337,7 @@
 				996ACA011A5B3D29003CC906 /* Player.m in Sources */,
 				996AC9D21A5B3C92003CC906 /* main.m in Sources */,
 				99DCF0881A5C7D2E00B76695 /* ComputerPlayer.m in Sources */,
+				99C6FBC01A698F72006C7A7E /* HandStrengthCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

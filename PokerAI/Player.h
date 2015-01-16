@@ -19,6 +19,7 @@
 
 - (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat;
 
+- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft;
 - (void)check;
 - (void)call;
 - (void)bet:(int)amount;

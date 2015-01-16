@@ -26,6 +26,16 @@
     return self;
 }
 
+/* 
+ * Decision making algorithm for AI
+ * Accounts for action of others and phase of the hand
+ * Could also account for button position, playing style, etc.
+ */
+- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft
+{
+    
+}
+
 - (void)check
 {
     
