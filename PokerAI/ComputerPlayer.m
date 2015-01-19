@@ -17,17 +17,18 @@
  * Accounts for action of others and phase of the hand
  * Could also account for button position, playing style, etc.
  */
-- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft
+- (void)decideActionForHand:(Hand *)hand
 {
-    [super decideAction:handPhase toCall:bet withPlayersLeft:playersLeft];
+    [super decideActionForHand:hand];
     
-    double handStrength = [HandStrengthCalculator getHandStrength:self.firstCard secondCard:self.secondCard];
+    double handStrength = [HandStrengthCalculator getHandStrengthForHand:hand firstCard:self.firstCard secondCard:self.secondCard];
     
-    if (handPhase == 0 && handStrength > 20.0)
+    if (hand.phase == 0 && handStrength > 20.0)
     {
         [self bet:100];
+        [hand setCurrentBet:100];
     }
-    else if (bet == 0)
+    else if (hand.currentBet == self.betAmount)
     {
         [self check];
     }
@@ -37,10 +38,11 @@
         if (handStrength < 12.0)
         {
             [self fold];
+            [hand setPlayersInHand:hand.playersInHand - 1];
         }
         else
         {
-            [self call:bet];
+            [self call:hand.currentBet];
         }
     }
 }

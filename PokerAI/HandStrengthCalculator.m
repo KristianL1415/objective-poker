@@ -10,7 +10,33 @@
 
 @implementation HandStrengthCalculator
 
-+ (double)getHandStrength:(Card *)firstCard secondCard:(Card *)secondCard
++ (double)getHandStrengthForHand:(Hand *)hand firstCard:(Card *)firstCard secondCard:(Card *)secondCard
+{
+    double strength = 0.0;
+    
+    switch (hand.phase)
+    {
+        case 0:
+            strength = [self getPreFlopHandStrength:firstCard secondCard:secondCard];
+            break;
+        case 1:
+            strength = [self getPostFlopHandStrengthForHand:hand firstCard:firstCard secondCard:secondCard];
+            break;
+        case 2:
+            strength = [self getPostTurnHandStrengthForHand:hand firstCard:firstCard secondCard:secondCard];
+            break;
+        case 3:
+            strength = [self getPostRiverHandStrengthForHand:hand firstCard:firstCard secondCard:secondCard];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return strength;
+}
+
++ (double)getPreFlopHandStrength:(Card *)firstCard secondCard:(Card *)secondCard
 {
     double strength = 0.0;
     
@@ -31,8 +57,38 @@
     
     NSLog(@"Hand: %@ %@, %@ %@", firstCard.suit, firstCard.value, secondCard.suit, secondCard.value);
     NSLog(@"Hand strength: %f", strength);
+    
     return strength;
 }
+
++ (double)getPostFlopHandStrengthForHand:(Hand *)hand firstCard:(Card *)firstCard secondCard:(Card *)secondCard
+{
+    double strength = 0.0;
+    
+    // TODO: calculate hand strength while accounting for the board
+    
+    return strength;
+}
+
++ (double)getPostTurnHandStrengthForHand:(Hand *)hand firstCard:(Card *)firstCard secondCard:(Card *)secondCard
+{
+    double strength = 0.0;
+    
+    // TODO: calculate hand strength while accounting for the board
+    
+    return strength;
+}
+
++ (double)getPostRiverHandStrengthForHand:(Hand *)hand firstCard:(Card *)firstCard secondCard:(Card *)secondCard
+{
+    double strength = 0.0;
+    
+    // TODO: calculate hand strength while accounting for the board
+    
+    return strength;
+}
+
+#pragma mark - Utility Methods
 
 + (int)getCardValueIndex:(Card *)card
 {

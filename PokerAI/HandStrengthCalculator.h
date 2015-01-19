@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "Card.h"
+#import "Hand.h"
 #import "StringConstants.h"
 
 @interface HandStrengthCalculator : NSObject
 
-+ (double)getHandStrength:(Card *)firstCard secondCard:(Card *)secondCard;
++ (double)getHandStrengthForHand:(Hand *)hand firstCard:(Card *)firstCard secondCard:(Card *)secondCard;
 
 @end

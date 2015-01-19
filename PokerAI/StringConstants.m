@@ -24,4 +24,9 @@ NSString *const kDealingHand = @"Dealing hand...";
 NSString *const kSmallBlind = @"Sm. blind";
 NSString *const kBigBlind = @"Big blind";
 
+NSString *const kFoldAction = @"Fold";
+NSString *const kCheckAction = @"Check";
+NSString *const kCallAction = @"Call";
+NSString *const kBetAction = @"Bet";
+
 @end

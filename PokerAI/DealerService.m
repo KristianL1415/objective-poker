@@ -18,7 +18,7 @@
     }
     else
     {
-        [player decideAction:hand.phase toCall:hand.currentBet withPlayersLeft:hand.playersInHand];
+        [player decideActionForHand:hand];
     }
 }
 

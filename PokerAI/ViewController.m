@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, PlayerState)
 @property (nonatomic, assign) PlayerState state;
 
 @property (nonatomic, strong) NSArray *chipLabels;
-@property (nonatomic ,strong) NSArray *a;
+@property (nonatomic ,strong) NSArray *actionLabels;
 
 @end
 
@@ -39,11 +39,8 @@ typedef NS_ENUM(NSInteger, PlayerState)
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.chipLabels = [[NSArray alloc] initWithObjects:self.computer1ChipCount,
-                           self.computer2ChipCount,
-                           self.computer3ChipCount,
-                           self.computer4ChipCount,
-                           self.computer5ChipCount, nil];
+    self.chipLabels = [[NSArray alloc] initWithObjects:self.computer1ChipCount, self.computer2ChipCount, self.computer3ChipCount, self.computer4ChipCount, self.computer5ChipCount, nil];
+    self.actionLabels = [[NSArray alloc] initWithObjects:self.computer1Action, self.computer2Action, self.computer3Action, self.computer4Action, self.computer5Action, nil];
     
     [self startNewGame];
 }
@@ -144,6 +141,18 @@ typedef NS_ENUM(NSInteger, PlayerState)
         UILabel *chipLabel = [self.chipLabels objectAtIndex:i - 1];
         [chipLabel setText:[NSString stringWithFormat:@"%d", [[game.players objectAtIndex:i] chipCount]]];
         [chipLabel setHidden:NO];
+    }
+}
+
+- (void)updateComputerActions
+{
+    Game *game = [self.dealer game];
+    
+    for (int i = 1; i < [game.players count]; i++)
+    {
+        UILabel *actionLabel = [self.actionLabels objectAtIndex:i - 1];
+        [actionLabel setText:[[game.players objectAtIndex:i] lastAction]];
+        [actionLabel setHidden:NO];
     }
 }
 

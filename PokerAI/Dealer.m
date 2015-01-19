@@ -117,12 +117,38 @@
     Player *firstActor = [self.game.players objectAtIndex:actorIndex];
     [DealerService decideAction:firstActor forHand:self.game.currentHand];
     
-    for (int i = 0; i < self.game.currentHand.playersInHand - 1; i++)
+    for (int i = 0; i < self.game.currentHand.playersInHand; i++)
     {
         actorIndex = [DealerService getNextPlayerIndex:actorIndex withPlayerCount:self.game.currentHand.playersInHand];
         Player *nextActor = [self.game.players objectAtIndex:actorIndex];
-        [DealerService decideAction:nextActor forHand:self.game.currentHand];        
+        [DealerService decideAction:nextActor forHand:self.game.currentHand];
+        [self.uiController updateChipCounts];
+        [self.uiController updateComputerActions];
     }
+    
+    if (self.game.currentHand.playersInHand > 1)
+    {
+        [self runFlop];
+    }
+    else
+    {
+        // TODO: Clean-up hand (award winner, etc.)
+    }
+}
+
+- (void)runFlop
+{
+    
+}
+
+- (void)runTurn
+{
+    
+}
+
+- (void)runRiver
+{
+    
 }
 
 @end

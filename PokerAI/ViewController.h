@@ -56,6 +56,7 @@
 - (void)displayCard:(Card *)card forPlayer:(Player *)player atPosition:(int)cardIndex;
 - (void)displayBoardCard:(Card *)card atPosition:(int)cardIndex;
 - (void)updateChipCounts;
+- (void)updateComputerActions;
 
 @end
 

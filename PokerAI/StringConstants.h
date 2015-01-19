@@ -24,4 +24,9 @@ extern NSString *const kDealingHand;
 extern NSString *const kSmallBlind;
 extern NSString *const kBigBlind;
 
+extern NSString *const kFoldAction;
+extern NSString *const kCheckAction;
+extern NSString *const kCallAction;
+extern NSString *const kBetAction;
+
 @end

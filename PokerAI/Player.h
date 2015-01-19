@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "Card.h"
+#import "Hand.h"
 
 @interface Player : NSObject
 
@@ -16,10 +18,11 @@
 @property (nonatomic, strong) Card *firstCard;
 @property (nonatomic, strong) Card *secondCard;
 @property (nonatomic, assign) int seatIndex;
+@property (nonatomic, assign) NSString *lastAction;
 
 - (instancetype) initWithChipCount:(int)startingChipCount seatIndex:(int)seat;
 
-- (void)decideAction:(int)handPhase toCall:(int)bet withPlayersLeft:(int)playersLeft;
+- (void)decideActionForHand:(Hand *)hand;
 - (void)check;
 - (void)call:(int)amount;
 - (void)bet:(int)amount;
