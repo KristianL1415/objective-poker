@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "ViewController.h"
 #import "Game.h"
+#import "DealerService.h"
 
 @interface Dealer : NSObject
 

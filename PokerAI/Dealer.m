@@ -58,7 +58,7 @@
 
 - (void)dealCards
 {
-    int playerIndex = [self getNextPlayerIndex:self.button];
+    int playerIndex = [DealerService getNextPlayerIndex:self.button withPlayerCount:self.game.currentHand.playersInHand];
     
     for (int i = 0; i < [self.game.players count] * 2; i++)
     {
@@ -78,15 +78,15 @@
             [self.uiController displayCard:currentCard forPlayer:currentPlayer atPosition:1];
         }
         
-        playerIndex = [self getNextPlayerIndex:playerIndex];
+        playerIndex = [DealerService getNextPlayerIndex:playerIndex withPlayerCount:self.game.currentHand.playersInHand];
         // TODO: Pass index of next card to be dealt for the board
     }
 }
 
 - (void)setBlinds
 {
-    Player *smallBlind = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button]];
-    Player *bigBlind = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 1]];
+    Player *smallBlind = [self.game.players objectAtIndex:[DealerService getNextPlayerIndex:self.button withPlayerCount:self.game.currentHand.playersInHand]];
+    Player *bigBlind = [self.game.players objectAtIndex:[DealerService getNextPlayerIndex:(self.button + 1) withPlayerCount:self.game.currentHand.playersInHand]];
     
     [smallBlind bet:[self.game smallBlind]];
     [bigBlind bet:[self.game bigBlind]];
@@ -97,11 +97,7 @@
 - (void)beginAction
 {
     // Pre-flop action
-    Hand *newHand = [[Hand alloc] initWithNumberOfPlayers:self.game.playersRemaining];
-    [self.game setCurrentHand:newHand];
-    [self.game.currentHand setCurrentBet:self.game.bigBlind];
-    Player *firstActor = [self.game.players objectAtIndex:[self getNextPlayerIndex:self.button + 2]];
-    [self decideAction:firstActor forPhase:0];
+    [self runPreFlop];
     
     // Flop
     
@@ -111,47 +107,21 @@
     
 }
 
-#pragma mark - Helpers
-
-- (void)decideAction:(Player *)player forPhase:(int)handPhase
+- (void)runPreFlop
 {
-    if ([player isKindOfClass:[HumanPlayer class]])
-    {
-        // Wait for human input
-    }
-    else
-    {
-        [player decideAction:handPhase toCall:self.game.currentHand.currentBet withPlayersLeft:self.game.currentHand.playersInHand];
-    }
-}
-
-- (int)getNextPlayerIndex:(int)currentPosition
-{
-    int arrayLength = (int)[self.game.players count];
-    int nextPosition = currentPosition + 1;
+    Hand *newHand = [[Hand alloc] initWithNumberOfPlayers:self.game.playersRemaining];
+    [self.game setCurrentHand:newHand];
+    [self.game.currentHand setCurrentBet:self.game.bigBlind];
     
-    if (nextPosition > arrayLength - 1)
-    {
-        return 0;
-    }
-    else
-    {
-        return nextPosition;
-    }
-}
-
-- (int)getPreviousPlayerIndex:(int)currentPosition
-{
-    int arrayLength = (int)[self.game.players count];
-    int previousPosition = currentPosition - 1;
+    int actorIndex = [DealerService getNextPlayerIndex:(self.button + 2) withPlayerCount:self.game.currentHand.playersInHand];
+    Player *firstActor = [self.game.players objectAtIndex:actorIndex];
+    [DealerService decideAction:firstActor forHand:self.game.currentHand];
     
-    if (previousPosition < 0)
+    for (int i = 0; i < self.game.currentHand.playersInHand - 1; i++)
     {
-        return arrayLength - 1;
-    }
-    else
-    {
-        return previousPosition;
+        actorIndex = [DealerService getNextPlayerIndex:actorIndex withPlayerCount:self.game.currentHand.playersInHand];
+        Player *nextActor = [self.game.players objectAtIndex:actorIndex];
+        [DealerService decideAction:nextActor forHand:self.game.currentHand];        
     }
 }
 

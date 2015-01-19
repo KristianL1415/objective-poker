@@ -34,7 +34,14 @@
     else
     {
         // Decide to call or fold here
-        [self call:bet];
+        if (handStrength < 12.0)
+        {
+            [self fold];
+        }
+        else
+        {
+            [self call:bet];
+        }
     }
 }
 
